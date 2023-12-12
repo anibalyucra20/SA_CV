@@ -34,7 +34,6 @@
       <li><a><i class="fa fa-desktop"></i> Matrícula <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="matriculas.php">Matrículas</a></li>
-          <li><a href="licencias.php">Licencias</a></li>
         </ul>
       </li>
       <li><a><i class="fa fa-table"></i> Docentes <span class="fa fa-chevron-down"></span></a>
@@ -65,8 +64,6 @@
           <li><a href="secciones.php">Secciones</a></li>
           <li><a href="cursos.php">Cursos</a></li>
           <li><a href="modalidad.php">Modalidades</a></li>
-          <!--<li><a href="competencias.php">Competencias</a></li>
-          <li><a href="capacidades.php">Capacidades</a></li>-->
           <li><a href="datos_sistema.php">Datos de Sistema</a></li>
         </ul>
       </li>
