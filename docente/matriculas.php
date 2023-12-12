@@ -58,22 +58,15 @@ if ($cargo != "Secretario Academico") {
         <div class="main_container">
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
-
-
                     <?php include("include/menu_secretaria_academica.php"); ?>
-
                     <!-- page content -->
                     <div class="right_col" role="main">
                         <div class="">
                             <div class="page-title">
                                 <div class="title_left">
-
                                 </div>
-
-
                             </div>
                             <div class="clearfix"></div>
-
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="x_panel">
@@ -96,13 +89,10 @@ if ($cargo != "Secretario Academico") {
                                                             <th>Acciones</th>
                                                         </tr>
                                                     </thead>
-
-                                                    
                                                     <tbody>
                                                         <?php
+                                                        
                                                         for ($i = 1; $i <= 4; $i++) {
-
-
                                                         ?>
                                                             <tr>
                                                                 <td><?php echo $i; ?></td>
@@ -162,7 +152,6 @@ if ($cargo != "Secretario Academico") {
                                                                                         </div>
                                                                                         <div align="center">
                                                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-
                                                                                             <button type="submit" class="btn btn-primary">Guardar</button>
                                                                                         </div>
                                                                                     </form>
@@ -173,21 +162,13 @@ if ($cargo != "Secretario Academico") {
                                                                     </div>
                                                                 </div>
                                                             </div>
-
                                                             <!-- FIN MODAL EDITAR-->
-
-
                                                         <?php
                                                         }
                                                         ?>
                                                     </tbody>
                                                 </table>
                                             </div>
-
-
-
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +176,6 @@ if ($cargo != "Secretario Academico") {
                         </div>
                     </div>
                     <!-- /page content -->
-
                     <!-- footer content -->
                     <footer>
                         <div class="pull-right">
@@ -206,7 +186,6 @@ if ($cargo != "Secretario Academico") {
                     <!-- /footer content -->
                 </div>
             </div>
-
             <!-- jQuery -->
             <script src="../plantilla/vendors/jquery/dist/jquery.min.js"></script>
             <!-- Bootstrap -->

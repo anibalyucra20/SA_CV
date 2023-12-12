@@ -23,6 +23,16 @@
                   <br>
                 </div>
               </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Ponderado : </label>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                  <?php
+                  ?>
+                  <input type="number" class="form-control" required="" value="<?php echo $rb_crit_eva['ponderado']; ?>" id="ponderado_crit_eva_<?php echo $rb_crit_eva['id'];?>">
+                  <br>
+                </div>
+              </div>
+              <div class="clearfix"></div>
               <div align="center">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary" onclick="actualizarCritEvaluacion(<?php echo $rb_crit_eva['id'].', '.$mostrar_eva['id'].', '.$id_calificacion.', '.$rb_crit_eva['orden']; ?>)">Guardar</button>

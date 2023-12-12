@@ -8,6 +8,7 @@ $detalle_crit_eva = $_GET['detalle'];
 $id_evaluacion = $_GET['id_eva'];
 $id_calificacion = $_GET['id_calif'];
 $orden = $_GET['orden'];
+$ponderado = $_GET['ponderado'];
 
 $b_evaa = buscar_EvaluacionPorId($conexion, $id_evaluacion);
 $rb_eva = mysqli_fetch_array($b_evaa);
@@ -37,7 +38,7 @@ while ($rb_det_mat = mysqli_fetch_array($b_detmatriculas)) {
             $b_crit_eva = buscar_CritEvaPorIdEvaluacionOrden($conexion, $id_eva, $orden);
             while ($rb_ind_logro = mysqli_fetch_array($b_crit_eva)) {
                 $id_crit = $rb_ind_logro['id'];
-                $consulta = "UPDATE criterio_evaluacion SET detalle='$detalle_crit_eva' WHERE id='$id_crit' AND orden='$orden'";
+                $consulta = "UPDATE criterio_evaluacion SET detalle='$detalle_crit_eva', ponderado='$ponderado' WHERE id='$id_crit' AND orden='$orden'";
                 $ejec_consulta = mysqli_query($conexion, $consulta);
                 if (!$ejec_consulta) {
                     $contar_errores++;
@@ -53,7 +54,7 @@ while ($rb_det_mat = mysqli_fetch_array($b_detmatriculas)) {
 
 if ($contar_errores > 0) {
     echo "<script>
-                alert('Hubo " . $contar_errores . " errores al actualizar el detalle del criterio de evalaución');
+                alert('Hubo " . $contar_errores .$ponderado. " errores al actualizar el detalle del criterio de evalaución');
                 window.location= '../evaluacion.php?data=" . $id_calificacion . "';
                 </script>
                 ";
