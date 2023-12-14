@@ -23,7 +23,7 @@ $b_detmatriculas = buscar_detmatriculadosPorIdCursoProg($conexion, $id_curso_pro
 while ($rb_det_mat = mysqli_fetch_array($b_detmatriculas)) {
     $id_det_matricula = $rb_det_mat['id'];
     //buscar matricula de estudiante
-    $b_matricula = buscar_matriculasPorId($conexion, $id_det_matricula);
+    $b_matricula = buscar_matriculasPorId($conexion, $rb_det_mat['id_matricula']);
     $rb_matricula = mysqli_fetch_array($b_matricula);
     $id_estudiante = $rb_matricula['id_estudiante'];
 
@@ -53,6 +53,7 @@ while ($rb_det_mat = mysqli_fetch_array($b_detmatriculas)) {
         }
     }
 }
+
 if ($contar_errores > 0) {
     echo "<script>
                 alert('Hubo " . $contar_errores . " errores al actualizar calificaciones');

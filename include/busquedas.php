@@ -144,6 +144,21 @@ function buscar_seccionPorid($conexion, $id){
     return mysqli_query($conexion, $consulta);
 }
 
+//busquedas areas curriculares
+function buscar_area_curricular($conexion){
+    $consulta = "SELECT * FROM area_curricular";
+    return mysqli_query($conexion, $consulta);
+}
+function buscar_area_curricularPorId($conexion, $id){
+    $consulta = "SELECT * FROM area_curricular WHERE id='$id'";
+    return mysqli_query($conexion, $consulta);
+}
+function buscar_area_curricularPorIdNivel($conexion, $id){
+    $consulta = "SELECT * FROM area_curricular WHERE id_nivel='$id'";
+    return mysqli_query($conexion, $consulta);
+}
+
+
 // busquedas curso
 
 function buscar_curso($conexion){
@@ -156,6 +171,10 @@ function buscar_cursoPorId($conexion, $id){
 }
 function buscar_cursoPorIdGrado($conexion, $id_grado){
     $consulta = "SELECT * FROM curso WHERE id_grado='$id_grado'";
+    return mysqli_query($conexion, $consulta);
+}
+function buscar_cursoPorIdArea($conexion, $id_area){
+    $consulta = "SELECT * FROM curso WHERE id_area_curricular='$id_area'";
     return mysqli_query($conexion, $consulta);
 }
 
@@ -267,6 +286,10 @@ function buscar_matriculasPorId($conexion,$id){
     $consulta = "SELECT * FROM matricula WHERE id='$id'";
     return mysqli_query($conexion, $consulta);
 }
+function buscar_matriculasPorAnioAcademicoSede($conexion,$anio,$sede){
+    $consulta = "SELECT * FROM matricula WHERE id_anio_academico='$anio' AND id_sede='$sede'";
+    return mysqli_query($conexion, $consulta);
+}
 
 
 //buscar estudiantes matriculados
@@ -276,6 +299,14 @@ function buscar_detmatriculadosPorIdCursoProg($conexion, $id_curso){
 }
 function buscar_detmatriculadosPorId($conexion, $id){
     $consulta = "SELECT * FROM detalle_matricula WHERE id='$id'";
+    return mysqli_query($conexion, $consulta);
+}
+function buscar_detmatriculadosPorIdMatricula($conexion, $id){
+    $consulta = "SELECT * FROM detalle_matricula WHERE id_matricula='$id'";
+    return mysqli_query($conexion, $consulta);
+}
+function buscar_detmatriculadosPorIdCursoProgIdMatricula($conexion, $id_curso,$id_mat){
+    $consulta = "SELECT * FROM detalle_matricula WHERE id_curso_programado='$id_curso' AND id_matricula='$id_mat'";
     return mysqli_query($conexion, $consulta);
 }
 

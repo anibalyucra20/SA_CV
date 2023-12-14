@@ -215,13 +215,10 @@ if ($cargo != "Secretario Academico") {
                                                                                 $id_evaluacion = $rb_evaluacion['id'];
 
                                                                                 $b_ind_logro = buscar_CritEvaPorIdEvaluacion($conexion, $id_evaluacion);
-                                                                                $cant_crit_eva = 0;
                                                                                 $suma_total_crit_eva = 0;
                                                                                 while ($rb_ind_logro = mysqli_fetch_array($b_ind_logro)) {
                                                                                     if ($rb_ind_logro['calificacion'] != "") {
-                                                                                        $cant_crit_eva++;
-                                                                                        //$suma_total_crit_eva += $rb_ind_logro['calificacion'];
-                                                                                        $suma_total_crit_eva += ($rb_ind_logro['ponderado']/100) * $rb_ind_logro['calificacion'];
+                                                                                        $suma_total_crit_eva += ($rb_ind_logro['ponderado'] / 100) * $rb_ind_logro['calificacion'];
                                                                                     }
                                                                         ?>
                                                                                     <td class="text-center" height="auto" width="20px">
@@ -234,7 +231,7 @@ if ($cargo != "Secretario Academico") {
                                                                                 ?>
                                                                                 <td class="text-center" height="auto" width="20px">
                                                                                     <?php if ($suma_total_crit_eva > 0) {
-                                                                                    echo round($suma_total_crit_eva);
+                                                                                        echo round($suma_total_crit_eva);
                                                                                     } ?></td>
                                                                             <?php } ?>
                                                                             <td class="text-center" height="auto" width="20px">

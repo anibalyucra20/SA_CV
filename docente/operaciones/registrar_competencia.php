@@ -2,19 +2,19 @@
 include("../../include/conexion.php");
 include("../../include/busquedas.php");
 
-$grado = $_POST['grado'];
-$area = $_POST['area'];
 $nombre = $_POST['nombre'];
+$enfoque = $_POST['enfoque'];
 $descripcion = $_POST['descripcion'];
+$id_curso = $_POST['id_curso'];
 
-$consulta = "INSERT INTO curso (nombre,descripcion,id_grado,id_area_curricular) VALUES ( '$nombre', '$descripcion', '$grado','$area')";
+$consulta = "INSERT INTO competencia (nombre,enfoque,descripcion,id_curso) VALUES ( '$nombre', '$enfoque','$descripcion','$id_curso')";
 
 $ejecutar_consulta = mysqli_query($conexion, $consulta);
 
 if ($ejecutar_consulta) {
     echo "<script>
                 alert('Se realizó el registro con éxito');
-                window.location = '../cursos.php';
+                window.location = '../competencias.php?curso=".$id_curso."';
             </script>";
 }else {
     echo "<script>

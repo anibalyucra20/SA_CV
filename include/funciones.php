@@ -18,7 +18,8 @@ function generar_llave()
 
 
 
-function reg_sesion($conexion, $id_trabajador, $llave){
+function reg_sesion($conexion, $id_trabajador, $llave)
+{
     $fecha_hora_inicio = date("Y-m-d H:i:s");
     $fecha_hora_fin = strtotime('+1 minute', strtotime($fecha_hora_inicio));
     $fecha_hora_fin = date("Y-m-d H:i:s", $fecha_hora_fin);
@@ -66,7 +67,8 @@ function actualizar_sesion($conexion, $id_sesion)
     mysqli_query($conexion, $actualizar);
 }
 
-function convertir_vigesimal_cualitativo($numero){
+function convertir_vigesimal_cualitativo($numero)
+{
     if ($numero >= 0 && $numero <= 10) {
         return "C";
     }
@@ -79,10 +81,49 @@ function convertir_vigesimal_cualitativo($numero){
     if ($numero > 17 && $numero <= 20) {
         return "AD";
     }
-    if($numero < 0 && $numero > 20){
+    if ($numero < 0 && $numero > 20) {
         return 0;
     }
-
 }
 
-?>
+function calcular_evaluacion($conexion, $id_evaluacion)
+{
+    $b_ind_logro = buscar_CritEvaPorIdEvaluacion($conexion, $id_evaluacion);
+    $suma_total_crit_eva = 0;
+    while ($rb_ind_logro = mysqli_fetch_array($b_ind_logro)) {
+        if ($rb_ind_logro['calificacion'] != "") {
+            $suma_total_crit_eva += ($rb_ind_logro['ponderado'] / 100) * $rb_ind_logro['calificacion'];
+        }
+    }
+    return $suma_total_crit_eva;
+}
+
+function calcular_calificacion($conexion, $id_calificacion)
+{
+    $b_evaluacion = buscar_EvaluacionPorIdCalificacion($conexion, $id_calificacion);
+    $suma_total_evaluacion = 0;
+    while ($rb_evaluacion = mysqli_fetch_array($b_evaluacion)) {
+        $id_evaluacion = $rb_evaluacion['id'];
+        $evaluacion = calcular_evaluacion($conexion, $id_evaluacion);
+
+        if ($evaluacion > 0) {
+            $suma_total_evaluacion += ($rb_evaluacion['ponderado'] / 100) * round($evaluacion);
+        }
+    }
+    return $suma_total_evaluacion;
+}
+
+function calcular_promedio_final($conexion, $id_detalle_mat)
+{
+    $b_calificacion = buscar_calificacionPorIdDetMat($conexion, $id_detalle_mat);
+    $suma_total_promedio = 0;
+    while ($rb_calificacion = mysqli_fetch_array($b_calificacion)) {
+        $id_calificacion = $rb_calificacion['id'];
+        $suma_total_califi = calcular_calificacion($conexion, $id_calificacion);
+
+        if ($suma_total_califi > 0) {
+            $suma_total_promedio += ($rb_calificacion['ponderado'] / 100) * round($suma_total_califi);
+        }
+    }
+    return $suma_total_promedio;
+}

@@ -52,6 +52,11 @@
           <li><a href="calificaciones_areas.php">Registro de Evaluación</a></li>
         </ul>
       </li>
+      <li><a><i class="fa fa-clone"></i>Reportes <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+          <li><a href="reportes_academicos.php">Reportes Académicos</a></li>
+        </ul>
+      </li>
       <li><a><i class="fa fa-clone"></i>Mantenimiento <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="datos_institucionales.php">Datos Institucionales</a></li>
@@ -62,6 +67,7 @@
           <li><a href="grados.php">Grados</a></li>
           <li><a href="turnos.php">Turnos</a></li>
           <li><a href="secciones.php">Secciones</a></li>
+          <li><a href="area_curricular.php">Áreas Curriculares</a></li>
           <li><a href="cursos.php">Cursos</a></li>
           <li><a href="modalidad.php">Modalidades</a></li>
           <li><a href="datos_sistema.php">Datos de Sistema</a></li>
