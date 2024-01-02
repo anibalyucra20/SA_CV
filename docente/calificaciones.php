@@ -144,6 +144,7 @@ if ($cargo != "Secretario Academico") {
 
                                                                             ?>
                                                                         </td>
+                                                                        
                                                                     <?php } ?>
                                                                     <td class="text-center form-control">
                                                                         <select name="recuperacion" id="">
