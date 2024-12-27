@@ -154,9 +154,9 @@ while ($rb_matriculas = mysqli_fetch_array($ejecutar)) {
                 $cont_calif_ponderado++;
             }
         }
-        $ponderado_final = round(round($suma_ponderado)/$cont_calif_ponderado);
-        $contenido_ponderado .= '<td>'.$ponderado_final.'</td><td></td>';
-        $contenido_puntaje.='<td colspan="2">'.round($suma_ponderado).'</td>';
+        $ponderado_final = round(round($suma_ponderado) / $cont_calif_ponderado);
+        $contenido_ponderado .= '<td>' . $ponderado_final . '</td><td></td>';
+        $contenido_puntaje .= '<td colspan="2">' . round($suma_ponderado) . '</td>';
     }
 
 
@@ -215,12 +215,12 @@ while ($rb_matriculas = mysqli_fetch_array($ejecutar)) {
     $contenido .= '<tr>
     <td rowspan="5"></td>
     <td> PROMEDIO PONDERADO</td>
-    '.$contenido_ponderado.'
+    ' . $contenido_ponderado . '
     <td rowspan="2" colspan="2" style="border: 3px solid red;">ORDEN DE MÉRITO <br> I TRIMESTRE</td>
 </tr>
 <tr>
     <td> PUNTAJE</td>
-    '.$contenido_puntaje.'
+    ' . $contenido_puntaje . '
 </tr>
 <tr>
     <td colspan="7">CONDUCTA</td>
